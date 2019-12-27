@@ -1,10 +1,8 @@
 from flask import Flask
 from marshmallow import Schema, fields, pre_load, validate
-from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 
 
-ma = Marshmallow()
 db = SQLAlchemy()
 
 
@@ -16,6 +14,13 @@ class Call(db.Model):
     call_started_time = db.Column(db.DateTime, nullable = False)
     call_ended_time = db.Column(db.DateTime, nullable = False)
     cost = db.Column(db.Numeric, nullable = False)
+
+    def __init__(self, caller_number, target_number, call_started_time, call_ended_time, cost):
+        self.caller_number = caller_number
+        self.target_number = target_number
+        self.call_started_time = call_started_time
+        self.call_ended_time = call_ended_time
+        self.cost = cost
 
 class Tariff(db.Model):
     __tablename__ = 'tariffs'

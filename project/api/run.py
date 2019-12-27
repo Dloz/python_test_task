@@ -8,7 +8,11 @@ def create_app(config_filename):
     app.register_blueprint(api_bp, url_prefix='/api')
 
     from models import db
+    app.app_context().push()
     db.init_app(app)
+        
+    with app.app_context():
+        db.create_all()
 
     return app
 
