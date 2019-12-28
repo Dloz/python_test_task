@@ -8,7 +8,7 @@ parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
 
 sys.path.insert(0, parent_dir_path)
 
-from api.models import Tariff
+from DAL.models import Tariff
 
 
 

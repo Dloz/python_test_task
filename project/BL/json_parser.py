@@ -1,5 +1,5 @@
 import json
-from models import Call
+from BL.models import Call
 
 
 def parse(json_data):

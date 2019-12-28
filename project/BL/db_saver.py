@@ -3,7 +3,7 @@ from BL.json_parser import parse
 from BL.models import Call
 from flask_sqlalchemy import SQLAlchemy
 from BL.cost_calculator import calculate
-from api.models import Call
+from DAL.models import Call
 
 db = SQLAlchemy()
 

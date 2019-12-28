@@ -1,12 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
-import api.config
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-
-db = SQLAlchemy()
+from DAL.models import db
+from DAL import config
 
 app = Flask(__name__)
-app.config.from_object(api.config)
+app.config.from_object(config)
 app.app_context().push()
 db.init_app(app)
