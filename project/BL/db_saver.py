@@ -25,6 +25,7 @@ class DbSaver:
     def save(self, file_path):
         #Parse call object from file
         file_content = read(file_path)
+        print(file_content)
         call_object = parse(file_content)
 
         #Calculate cost of the call.

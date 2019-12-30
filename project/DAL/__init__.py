@@ -1,4 +1,4 @@
 from flask_sqlalchemy import SQLAlchemy
-import api
+from api.run import create_app
 
 db = SQLAlchemy()

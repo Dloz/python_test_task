@@ -1,4 +1,15 @@
+import os, sys
+
+#Following lines are for assigning parent directory dynamically.
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
+
+sys.path.insert(0, parent_dir_path)
+
 import sys
+import api
 import time
 from watchdog.observers import Observer
 from events import FilesEventHandler
@@ -34,5 +45,5 @@ class FilesWatcher:
 
 if __name__ == "__main__":
     src_path = sys.argv[1] if len(sys.argv) > 1 else '..\\test_folder'
-    print(src_path)
+    #print(src_path)
     FilesWatcher(src_path).run()

@@ -6,7 +6,6 @@ from DAL.config import SQLALCHEMY_DATABASE_URI
 from sqlalchemy.types import TypeDecorator
 import datetime 
 
-
 db = SQLAlchemy()
 engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=False)
 
@@ -30,9 +29,11 @@ class Call(db.Model):
     
     @classmethod
     def create(cls, **kw):
+        from api.app import app
         obj = cls(**kw)
-        db.session.add(obj)
-        db.session.commit()
+        with app.app_context():
+            db.session.add(obj)
+            db.session.commit()
 
 class Tariff(db.Model):
     __tablename__ = 'tariffs'

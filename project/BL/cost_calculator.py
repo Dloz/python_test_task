@@ -9,6 +9,7 @@ parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
 sys.path.insert(0, parent_dir_path)
 
 from DAL.models import Tariff
+from api.app import app
 
 
 
@@ -31,8 +32,9 @@ def calculate(call_duration, connection_type):
     return cost * call_duration // 60 
 
 def get_cost(connection_type):
-    tariff = Tariff.query.filter_by(connection_type=connection_type).first()
-    return tariff.price
+    with app.app_context():
+        tariff = Tariff.query.filter_by(connection_type=connection_type).first()
+        return tariff.price
 
 
 if __name__ == '__main__':
