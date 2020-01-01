@@ -7,8 +7,8 @@ class Call:
     def __init__(self, caller_number, target_number, call_started_time, call_ended_time, connection_type):
         self.caller_number = caller_number
         self.target_number = target_number
-        self.call_started_time = self.__convert_date(call_started_time)
-        self.call_ended_time = self.__convert_date(call_ended_time)
+        self.call_started_time = self.__convert_date_to_str(call_started_time)
+        self.call_ended_time = self.__convert_date_to_str(call_ended_time)
         self.connection_type = connection_type
         self.cost = None
 
@@ -25,7 +25,7 @@ class Call:
         return Decimal(end_time - start_time)
 
     
-    def __convert_date(self, timestamp):
+    def __convert_date_to_str(self, timestamp):
         date_str = datetime.fromtimestamp(timestamp)
         return date_str.strftime('%Y-%m-%d %H:%M:%S')
     

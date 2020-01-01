@@ -27,6 +27,19 @@ class Call(db.Model):
         self.cost = cost
 
     
+    @property
+    def serialize(self):
+       """Return object data in easily serializable format"""
+       return {
+           'id'         : self.id,
+           'caller_number': self.caller_number,
+           'target_number': self.target_number,
+           'call_started_time': self.call_started_time.strftime('%Y-%m-%d %H:%M:%S'),
+           'call_ended_time': self.call_ended_time.strftime('%Y-%m-%d %H:%M:%S'),
+           'cost': self.cost
+       }
+
+    
     @classmethod
     def create(cls, **kw):
         from api.app import app

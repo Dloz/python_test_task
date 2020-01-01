@@ -1,0 +1,7 @@
+{
+    "caller_number": "123456",
+    "target_number": "1234",
+    "call_start_time": 1577366700,
+    "call_ended_time": 1577366900,
+    "connection_type": "LTE"
+}
