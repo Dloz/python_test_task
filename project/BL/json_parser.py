@@ -3,9 +3,15 @@ from BL.models import Call
 
 
 def parse(json_data):
-    print("Json_data", json_data)
+    '''
+    This method parses json object from a string.
+
+    Args:
+        json_data: represents json data in a string format
+    Returns:
+        call: call
+    '''
     loaded_json = json.loads(json_data)
-    print("loaded_json", loaded_json)
     call = Call(
         loaded_json["caller_number"],
         loaded_json["target_number"],

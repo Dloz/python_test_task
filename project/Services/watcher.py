@@ -15,6 +15,9 @@ from watchdog.observers import Observer
 from events import FilesEventHandler
 
 class FilesWatcher:
+    '''
+    Class that watches a directory on creating new files.
+    '''
     def __init__(self, src_path):
         self.__src_path = src_path
         self.__event_handler = FilesEventHandler()
@@ -22,6 +25,7 @@ class FilesWatcher:
 
     def run(self):
         self.start()
+        print('Listening directory:', self.__src_path)
         try:
             while True:
                 time.sleep(1)
@@ -45,5 +49,4 @@ class FilesWatcher:
 
 if __name__ == "__main__":
     src_path = sys.argv[1] if len(sys.argv) > 1 else '..\\test_folder'
-    #print(src_path)
     FilesWatcher(src_path).run()

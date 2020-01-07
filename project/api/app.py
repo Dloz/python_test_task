@@ -6,16 +6,16 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from DAL.models import db
-from DAL import config
+#from DAL.models import db
+#from DAL import config
 
-app = Flask(__name__)
-app.config.from_object(config)
-app.app_context().push()
-db.init_app(app)
+# app = Flask(__name__)
+# app.config.from_object(config)
+# app.app_context().push()
+# db.init_app(app)
 
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()
 
 
 api_bp = Blueprint('api', __name__)

@@ -1,9 +1,10 @@
-print('__file__={0:<35} | __name__={1:<20} | __package__={2:<20}'.format(__file__,__name__,str(__package__)))
 from datetime import datetime
 from decimal import Decimal
 
 class Call:
-    
+    '''
+    Represents model of a call.
+    '''
     def __init__(self, caller_number, target_number, call_started_time, call_ended_time, connection_type):
         self.caller_number = caller_number
         self.target_number = target_number
@@ -14,11 +15,18 @@ class Call:
 
 
     def set_cost(self, cost):
+        '''
+        Set cost of a call.
+        '''
         self.cost = cost
     
 
     def get_call_duration(self):
-        
+        '''
+        Method to receive duration of the call model.
+        Returns:
+            Duration of the call model.
+        '''
         end_time = datetime.strptime(self.call_ended_time, "%Y-%m-%d %H:%M:%S").timestamp()
         start_time = datetime.strptime(self.call_started_time, "%Y-%m-%d %H:%M:%S").timestamp()
 
@@ -26,6 +34,9 @@ class Call:
 
     
     def __convert_date_to_str(self, timestamp):
+        '''
+        Private method which converts from timestamp object to string in format %Y-%m-%d %H:%M:%S
+        '''
         date_str = datetime.fromtimestamp(timestamp)
         return date_str.strftime('%Y-%m-%d %H:%M:%S')
     
