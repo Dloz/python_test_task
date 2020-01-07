@@ -29,3 +29,5 @@ Run directory watcher:
 Run api:
 1. Change current working directory to project\api.
 2. Run 'python run.py' in command line.
+3. Go to the http://127.0.0.1:5000/api/calls in browser to get info about all calls.
+4. Go to the http://127.0.0.1:5000/api/calls/<call_number> in browser to get info about calls in which call_number was involved.
